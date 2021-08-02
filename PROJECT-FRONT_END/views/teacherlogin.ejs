@@ -1,0 +1,59 @@
+<%- include('partials/header') %>
+
+    <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/alogin.css">
+    <title>Login as Admin</title>
+</head>
+<body>
+    <div class="container" id="container">
+     <div class="form">
+         <div class="errors">
+     <%if(loginerrors != ''){%>
+          <div class="alert alert-danger" role="alert">
+              <%= loginerrors %>
+          </div>
+          <%} %>   
+        </div>   
+          <!-- onsubmit="return validatelog(); -->
+            <form action="/teacheruser/login" class="log-in-form" name="log-in-form" method="POST">
+                <h2 class="title">Teacher Login</h2>
+
+                <div class="input-field">
+                    <i class="fas fa-user"></i>
+                    <input type="text" placeholder="Email" name="username" autocomplete="off" required />
+
+                </div>
+                <div id="email_error">Invalid Email</div>
+                <div class="input-field">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" placeholder="Password" name="password" required />
+
+
+
+                </div>
+                <div id="password_error">Invalid Password Format</div>
+                <div id="remember"><input type="checkbox" name="remember">Remember me
+                    <a id="remember" href="#">Forgot Password ?</a>
+                </div>
+                <a href="#"><input type="submit" value="Login" class="btn solid" /></a>
+                <p class="bms-text">Or Go to Bmsce Sites</p>
+                <div class="bms-media">
+                    <a href="https://www.bmsce.ac.in/" class="bms-icon">
+                        <i class="fa fa-university"></i>
+                    </a>
+                    <a href="https://campus.bmsce.ac.in/faculty/" class="bms-icon">
+                        <i class="fa fa-users"></i>
+                    </a>
+
+                </div>
+
+            </form>
+            <p id="others">
+                If you are a Student, <a href="/suser/login">Login As Student</a>
+            </p>
+        </div>
+
+        <script type="text/javascript" src="/js/alogin.js"></script>
+    </div>
+    <%- include('partials/footer') %>

@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=B612:wght@700&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-weight: 600;
+    font-family: Century Gothic;
+    color: #593535;
+}
+
+.container {
+    display: grid;
+    height: 100vh;
+    width: 100%;
+    background-image: url(photos/email-pattern.png);
+    font-family: Century Gothic;
+}
+
+.heading {
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    margin: 5%;
+}
+
+.name h1 {
+    font-size: 4rem;
+    color: #593535;
+}
+
+.extra {
+    color: #ffffff;
+    font-size: 1.3rem;
+    margin: 5% auto 0 auto;
+}
+
+.extra {
+    text-align: center;
+}
+
+.nav {
+    text-align: center;
+}
+
+.nav p {
+    font-size: 1.3rem;
+    color: #593535;
+    padding-top: 2%;
+    padding-bottom: 2%;
+}
+
+.btn {
+    width: 200px;
+    height: 50px;
+    overflow: hidden;
+    line-height: 2rem;
+    border-radius: 49px;
+    border: none;
+    outline: none;
+    background-image: linear-gradient(#2980b9, #2c3e50);
+    font-weight: 600;
+    transition: transform 0.2s ease-in;
+}
+
+.btn a {
+    text-decoration: none;
+    color: #fff;
+    letter-spacing: 1px;
+}
+
+.btn-adm a {
+    letter-spacing: 2px;
+}
+
+.btn:active {
+    transform: scale(0.9);
+    background-image: linear-gradient( #2c3e50, #2980b9);
+}
+
+h3,
+h2 {
+    color: #593535;
+}
+
+.bms-icon {
+    height: 46px;
+    width: 46px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 0.45rem;
+    color: rgb(50, 28, 179);
+    border-radius: 50%;
+    border: 1px solid #333;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.bms-icon:hover {
+    color: #213e6e;
+    border-color: #213e6e;
+    box-shadow: 0 1.5px 4px rgba(10, 10, 10, 0.904), 0px 1px 1px rgba(10, 10, 10, 0.904);
+}
+
+.bms-media {
+    display: flex;
+    justify-content: center;
+    padding: 3px;
+}
+
+footer a{
+    margin-left: 85%;
+}

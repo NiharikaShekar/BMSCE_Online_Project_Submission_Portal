@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <link rel="apple-touch-icon" sizes="76x76" href="/assets/img/apple-icon.png">
+    <!-- <link rel="icon" type="image/png" href="/assets/img/favicon.png"> -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>
+        Assign
+    </title>
+    <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
+    <!--     Fonts and icons     -->
+    <link rel="stylesheet" type="text/css"
+        href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <!-- CSS Files -->
+    <link href="/assets/css/material-dashboard.css?v=2.1.2" rel="stylesheet" />
+    <!-- CSS Just for demo purpose, don't include it in your project -->
+    <link href="/assets/demo/demo.css" rel="stylesheet" />
+</head>
+
+<body class="">
+    <div class="wrapper ">
+        <div class="sidebar" data-color="purple" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
+            <!--
+        Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
+
+        Tip 2: you can also add an image using data-image tag
+    -->
+            <div class="logo"><a href="#" class="simple-text logo-normal">
+                    Assign Teacher
+                </a></div>
+            <div class="sidebar-wrapper">
+                <ul class="nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/admin/admindashboard">
+                            <i class="material-icons">dashboard</i>
+                            <p>Dashboard</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/admin/addTeacher">
+                            <i class="material-icons">person</i>
+                            <p>Add User</p>
+                        </a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/admin/appointTeacher">
+                            <i class="material-icons">content_paste</i>
+                            <p>Assign Teacher</p>
+                        </a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link" href="/admin/adminacademicdb">
+                          <i class="material-icons">dashboard</i>
+                          <p>Academic Dashboard</p>
+                        </a>
+                      </li>
+                </ul>
+            </div>
+        </div>
+        <div class="main-panel">
+            <!-- Navbar -->
+            <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
+                <div class="container-fluid">
+
+
+                    <div class="collapse navbar-collapse justify-content-end">
+
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link" href="/adminuser/logout">
+                                    <i class="material-icons">logout</i>
+                                    <p class="d-lg-none d-md-block">
+                                        Logout
+                                    </p>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <!-- End Navbar -->
+            <div class="content">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card">
+                                <div class="card-header card-header-primary">
+                                    <h3 class="card-title ">Teacher Details</h3>
+                                </div>
+                                <div class="card-body">
+                                    <div class="table-responsive">
+                                        <table class="table">
+                                            <thead class=" text-primary">
+                                                <th>
+                                                    ID
+                                                </th>
+                                                <th>
+                                                    Name
+                                                </th>
+                                                <th>
+                                                    Email
+                                                </th>
+                                                <th>
+                                                    Phone No
+                                                </th>
+                                            </thead>
+                                            <tbody>
+                                                <%for(var i=0;i<teacher.length;i++){%>
+                                                <tr>
+                                                    <td>
+                                                       <%=teacher[i].TEACHER_ID%>
+                                                    </td>
+                                                    <td>
+                                                        <%=teacher[i].NAME%>
+                                                    </td>
+                                                    <td>
+                                                        <%=teacher[i].EMAIL%>
+                                                    </td>
+                                                    <td>
+                                                        <%=teacher[i].PHONE_NO%>
+                                                    </td>
+                                                </tr>
+                                                <%}%>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="card">
+                                <div class="card-header card-header-primary">
+                                    <h4 class="card-title">Assign Teacher</h4>
+                                    <p class="card-category">Assign teacher to different projects</p>
+                                </div>
+                                <div class="card-body">
+                                    <%if(project.length>0){%>
+                                    <form action="/admin/appointTeacher" method="POST" onsubmit="md.showNotification('top','center')">
+                                        <div class="row">                                          
+                                            <div class="col-md-6">
+                                                <div class="form-group has-label">
+                                                    <label class="bmd-label-floating">Enter Teacher ID</label>
+                                                    <input type="text" name="teacherid" class="form-control" autocomplete="off" required="true">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                            <label class="bmd-label-floating">Available Project id</label>
+                                            <%for(var i=0;i<project.length;i++){%>                                          
+                                            <div class="form-check">
+                                                <label class="form-check-label">
+                                                    <input class="form-check-input" type="checkbox" name="project<%=project[i].PROJECT_ID%>" value="<%=project[i].PROJECT_ID%>">
+                                                    <%=project[i].PROJECT_ID%>
+                                                    <span class="form-check-sign">
+                                                        <span class="check"></span>
+                                                    </span>
+                                                </label>
+                                            </div>
+                                            <%}%>
+                                        </div>
+                                    </div>                                      
+                                        <button type="submit" class="btn btn-primary pull-right">Assign Teacher</button>
+                                        <div class="clearfix"></div>
+                                    </form>
+                                    <%}else{%>
+                                        <label class="bmd-label-floating">NO NEW PROJECTS AVAILABLE</label>
+                                    <%}%>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--   Core JS Files   -->
+  <script src="/assets/js/core/jquery.min.js"></script>
+  <script src="/assets/js/core/popper.min.js"></script>
+  <script src="/assets/js/core/bootstrap-material-design.min.js"></script>
+  <script src="/assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+      <!-- Forms Validations Plugin -->
+  <script src="/assets/js/plugins/jquery.validate.min.js"></script>
+    <!--  Notifications Plugin    -->
+  <script src="/assets/js/plugins/bootstrap-notify.js"></script>
+  <!-- Bootstrap Notify -->
+  <script>
+      function showNotification(from, align){
+$.notify({
+    icon: "add_alert",
+    message: "ASSIGNED TEACHER SUCCESSFULLY"
+},{
+    type: 'success',
+    delay: 20000,
+    allow_dismiss: true,
+	timer: 10000,
+    placement: {
+        from: from,
+        align: align
+    },
+    animate: {
+		enter: 'animated fadeInDown',
+		exit: 'animated fadeOutUp'
+	}, 
+});
+}
+  </script>
+</body>
+</html>

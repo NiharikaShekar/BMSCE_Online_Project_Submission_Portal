@@ -1,0 +1,122 @@
+<%- include('partials/header') %>
+<title>Appointments</title>
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+<link rel="stylesheet" href="/css/appointment.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+</head>
+<body>
+    <% console.log("kulu", vals); %>
+     <div style="background-image: url(./photos/email-pattern.png);">
+          <div class="header">
+               <h1>BMSCE ONLINE PROJECT SUBMISSION PORTAL</h1>
+          </div>
+          <p class="abc">WELCOME TO TEACHER'S HOME PAGE!</p>
+          <br />
+          <div class="border1">
+               <div class="row">
+                    <div class="column side">
+                         <div class="border">
+                              <h1 style="font-size: 30px"><%=vals[0].NAME%></h1>
+                              <i class="fa fa-user" style="font-size: 23px">
+                                   <%=vals[0].EMAIL%></i>
+                              <br />
+                              <br />
+                              <br />
+
+                              <a href="/teacher/scheduleappointment"><button class="button1"><i class='fas fa-edit'></i> Schedule an
+                                        appointment</button></a>
+
+
+                              <a href="/teacher/viewappointmentreqs"><button class="button2"><i class="fa fa-laptop"></i> View upcoming and requests for the appointment</button></a>
+                         </div>
+                    </div>
+                    <div class="column middle">
+                         <div class="topnav">
+                              <a href="/teacher/viewreport">View Reports</a>
+                              <a class="active" href="/teacher/scheduleappointment" style="color: black">Appointments</a>
+                              <a href="/teacher/viewproject">View Projects</a>
+                              <a href="/teacher/grading">Grading </a>
+                              <a href="/teacheruser/logout">Logout </a>
+                         </div>
+                         <div class="set">
+                              <ul>
+                                   <li>
+                                        <form action="/teacher/scheduleappointment" method="POST">
+                                             <div id="header">
+                                                  <label for="setappointment">Set appointment date and time:</label>
+                                                  <input type="datetime-local" id="setappointment" name="ADATE"
+                                                       style="font-size: 20px;" class="time">
+                                             </div>
+                                   </li>
+                                   <br>
+                                   <li>
+                                        
+                                        <label for="purpose">Purpose of the appointment:</label>
+
+                                        <select id="purpose" name="TYPEOFAPP" style="font-size: 25px;">
+                                             <option value="Doubt clarification">Doubt clarification </option>
+                                             <option value="To view Presentations">To view Presentations</option>
+                                        </select>
+                                        <br>
+                                        
+                                   </li>
+                                   <li>
+                                        
+                                        <p>Select Teams</p>
+                                       <% vals.forEach((val, index)=>{ %>
+                                             <input type="checkbox" id="group<%=index%>" name="group<%=index%>" value="<%=val.PROJECT_ID%>">
+                                             <label for="group<%=index%>"> <%= val.PROJECT_TITLE %></label>
+                                        <%}) %>
+                                        <br>
+                                        <br>
+                                   </li>
+                                   
+                                   <!-- <div class="table1">
+                                        <table>
+                                             <h5 style="text-align:left" style="font-size: 13px;">APPOINTMENT DETAILS:
+                                             </h5>
+                                             <tr style="font-size: 18px;">
+                                                  <th>SECTION</th>
+                                                  <th>NO OF TEAMS</th>
+                                                  <th>APPOINTMENT TYPE</th>
+                                                  <th>TIME OF APPOINTMENT</th>
+                                                  <th>GOOGLE MEET LINK</th>
+                                             </tr>
+                                             <tr style="font-size: 18px;">
+                                                  <td id="s" style="text-align: center;">A</td>
+                                                  <td style="text-align: center;">5</td>
+                                                  <td id="appo">TO VIEW PRESENTATION</td>
+                                                  <td id="t">20/11/2020 15:00</td>
+                                                  <td>https://meet.google.com/abc-lmno-xyz</td>
+                                             </tr>
+                                        </table>
+
+                                        <p style="font-size: 15px;">**THE ABOVE APPOINTMENT DETAILS WILL BE NOTIFIED TO
+                                             THE STUDENTS IN THE STUDENTS' NOTIFICATION SECTION </p>
+                                   </div> -->
+
+                                   <div id="inst">
+                                        <li>
+                                             
+                                                  <label for="add">Additional instructions regarding
+                                                       appointment(optional):</label>
+                                                  <br>
+                                                  <textarea id="add" name="add" rows="6" cols="100"
+                                                       style="border-width: 5px; border-color: black;">
+        </textarea>
+                                             
+                                        </li>
+                                   </div>
+                              </ul>
+                              <div id="button">
+                                   <input type="submit" value="SET THE APPOINTMENT" class="set1" onclick="validate();">
+                              </div>
+                              </form>
+                         </div>
+                    </div>
+               </div>
+          </div>
+     </div>
+     <script src="/js/appointment.js"></script>
+     <%- include('partials/footer') %>

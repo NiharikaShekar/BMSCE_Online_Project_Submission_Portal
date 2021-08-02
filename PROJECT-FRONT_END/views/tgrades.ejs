@@ -1,0 +1,149 @@
+<%- include('partials/header') %>
+    <title>Grading</title>
+    <link rel="stylesheet" href="/css/viewproject.css" />
+    <link rel="stylesheet" href="/css/fgrading.css" />
+    
+    </head>
+
+    <body>
+
+        <div class="header">
+            <h1>BMSCE ONLINE PROJECT SUBMISSION PORTAL</h1>
+        </div>
+
+        <p class="abc">WELCOME TO TEACHER'S HOME PAGE!</p>
+        <br>
+        <div class="topnav">
+            <a href="/teacher/viewreport">View Reports</a>
+            <a href="/teacher/scheduleappointment">Appointments</a>
+            <a href="/teacher/viewproject">View Projects</a>
+            <a href="/teacher/grading" >Grade </a>
+            <a href="/teacheruser/logout">Logout </a>
+        </div>
+        <div class="grade">
+            <% console.log("kikio",vals, gds); %>
+            <%if(gds.length===0){ %>
+                <form action="/teacher/fgrade" method="post" onsubmit="return func1();">
+                    <table class="styled-table">
+                        <caption class="cptn">Project Title: <%= title %></caption>
+                        <thead>
+                            <tr>
+                            <th>USN</th>
+                            <th>CIE</th>
+                            <th>HTML (0-10)</th>
+                            <th>JAVASCRIPT (0-10)</th>
+                            <th>CSS (0-10)</th>
+                            <th>REPORT (0-10)</th>
+                            <th>ORAL COMMUNICATION (0-10)</th>
+                            <th>SEE(0-50)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                
+                            <% vals.forEach(val=>{ %>
+                                <tr>
+                                    <td>
+                                        <%= val.USN %>
+                                    </td>
+                                    <td>
+                                        <input type="number" name="CIE" id="CIE" required min="0" max="50">
+                                    </td>
+                                    <td>
+                                        <input type="number" name="HTML" id="HTML" required min="0" max="10">
+                                    </td>
+                                    <td>
+                                        <input type="number" name="JAVASCRIPT" id="JAVASCRIPT" required min="0" max="10">
+                                    </td>
+                                    <td>
+                                        <input type="number" name="CSS" id="CSS" required min="0" max="10">
+                                    </td>
+                                    <td>
+                                        <input type="number" name="REPORT" id="REPORT" required min="0" max="10">
+                                    </td>
+                                    <td>
+                                        <input type="number" name="ORALCOMMUNICATION" id="ORALCOMMUNICATION" required min="0" max="10">
+                                    </td>
+                                    <td>
+                                        <input type="number" name="SEE" id="SEE" required min="0" max="50">
+                                    </td>
+                                    <input type="hidden" value=<%=val.USN%> name="STUD_IDs">
+                                    <input type="hidden" value=<%=id%> name="PROJECT_ID">
+                                </tr>
+                                <% }); %>
+                
+                
+                        </tbody>
+                    </table>
+                    <p>Remark</p>
+                    <textarea name="remark" id="remark" cols="150" rows="5" required></textarea>
+                    <input type="submit" value="GRADE">
+                </form>
+            <% }else{ %>
+                <h2>Graded</h2>
+                <form action="/teacher/patchgrade" method="post" onsubmit="return func2();">
+                <table class="styled-table done">
+                    <caption class="cptn">
+                       Project Title: <%= title %>
+                    </caption>
+                    <thead>
+                        <tr>
+                            <th>USN (0-10)</th>
+                            <th>CIE</th>
+                            <th>HTML (0-10)</th>
+                            <th>JAVASCRIPT (0-10)</th>
+                            <th>CSS (0-10)</th>
+                            <th>REPORT (0-10)</th>
+                            <th>ORAL COMMUNICATION (0-10)</th>
+                            <th>SEE(0-50)</th>
+                
+                        </tr>
+                    </thead>
+                    <tbody>
+                
+                        <% gds.forEach((gd, index)=>{ %>
+                            <tr>
+                                <td>
+                                    <%= vals[index].USN %>
+                                </td>
+                                <td>
+                                    <input type="number" name="CIE" id="CIE" class="edit" value="<%= gd.CIE %>" readonly>
+                                </td>
+                               
+                                <td>
+                                    <input type="number" class="edit" name="HTML" id="HTML" value="<%= gd.HTML %>" readonly>
+                                </td>
+                                <td>
+                                    <input type="number" class="edit" name="JAVASCRIPT" id="JAVASCRIPT" value="<%= gd.JAVASCRIPT %>" readonly>
+                                </td>
+                                <td>
+                                    <input type="number" class="edit" name="CSS" id="CSS" value="<%= gd.CSS %>" readonly>
+                                </td>
+                                <td>
+                                    <input type="number" class="edit" name="REPORT" id="REPORT" value="<%= gd.REPORT %>" readonly>
+                                </td>
+                                <td>
+                                    <input type="number" class="edit" name="ORALCOMMUNICATION" id="ORALCOMMUNICATION" value="<%= gd.ORALCOMMUNICATION %>" readonly>
+                                </td>
+                                <td>
+                                    <input type="number" class="edit" name="SEE" id="SEE" value="<%= gd.TOTAL_SEE %>" readonly>
+                                </td>
+                                <input type="hidden" value=<%=vals[index].USN%> name="STUD_IDs">
+                                <input type="hidden" value=<%=id%> name="PROJECT_ID">
+                                <input type="hidden" name="patch" value="yes">
+                            </tr>
+                            <% }); %>
+                
+                
+                    </tbody>
+                </table>
+                <div class="remark">
+                <p>Remark</p>
+                <textarea name="remark" id="remark" cols="150" rows="5" required></textarea>
+                </div>
+                <input  value="CHANGE" id="change">
+                </form>
+                <% } %>
+            
+        </div>
+        <script src="/js/patch.js"></script>
+        <%- include('partials/footer') %>

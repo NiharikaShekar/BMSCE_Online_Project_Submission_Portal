@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./css/submitdetails.css">
+    <script type="text/javascript" src="./js/submitdetails.js"></script>
+    <title>STUDENT SUBMIT DETAILS</title>
+
+</head>
+
+<body>
+  
+    <div class=heading>
+      <h1>WELCOME TO BMSCE PROJECT SUBMISSION PORTAL</h1>
+    </div>
+    <div class=container>  
+    <div class="fields">
+      <label for="projecttitle">ENTER THE PROJECT TITLE:</label>
+      <input type="text" placeholder="ENTER PROJECT TITLE" id="projecttitle"><br><br>
+      <label for="sections">ENTER THE SECTION:</label>
+     <select name="dropdown" id="section">
+    <option value="2">A</option>
+    <option value="4">B</option>
+    <option value="6">C</option>
+    <option value="D">D</option>
+     </select><br><br>
+      <label for="members">ENTER THE NUMBER OF MEMBERS:</label>
+     <select name="dropdown" id="members">
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option><br><br>
+     </select>
+    </div>
+    <div class=sub1>    <button type="submit"  onclick="Validate();" class="submitbtn1" >SUBMIT</button> </div>
+    <div class="fields4">
+      <h3>ENTER THE DETAILS OF MEMBERS AS FOLLOWS:</h3>
+    </div>
+    <div class=member1>
+      <hr>
+    <h3 style="font-size: larger;">Member 1:</h3>
+    <br>
+    <label for="name1" style="font-size: larger;"><b>NAME:</b></label>
+    <input type="text" placeholder="Enter NAME" name="name1" id="name1" required>
+      <br>
+    <label for="usn1" style="font-size: larger;"><b>USN:</b></label>
+    <input type="text" placeholder="Enter USN" name="usn1" id="usn1" required>
+    <div id="USN_error1">Invalid USN</div>
+    <br>
+    <label for="e1" style="font-size: larger;"><b>EMAIL ID:</b></label>
+    <input type="text" placeholder="Enter EMAIL ID" name="e1" id="e1" required>
+    <div id="semail_error1">Invalid Email</div>
+    <br>
+  
+    <label for="phone1" style="font-size: larger;" ><b>PHONE NUMBER:</b></label>
+<input type="tel"  placeholder="Enter PHONE NUMBER" id="phone1" name="phone1"
+       pattern="[0-9]{10}"
+       required>
+       <div id="ph_error1">Invalid PHONE NUMBER</div>
+       <br>
+    <hr>
+    </div>
+    <div class=member2>
+    <h3  style="font-size: larger;">Member 2:</h3>
+    <br>
+    <label for="name2"  style="font-size: larger;"><b>NAME:</b></label>
+    <input type="text" placeholder="Enter NAME" name="name2" id="name2" required>
+    <br>
+    <label for="usn2"  style="font-size: larger;"><b>USN:</b></label>
+    <input type="text" placeholder="Enter USN" name="usn2" id="usn2" required>
+    <div id="USN_error2">Invalid USN</div>
+    <br>
+    <label for="e2" style="font-size: larger;"><b>EMAIL ID:</b></label>
+    <input type="text" placeholder="Enter EMAIL ID" name="e2" id="e2" required>
+    <div id="semail_error2">Invalid Email</div>
+    <br>
+    <label for="phone2"  style="font-size: larger;"><b>PHONE NUMBER:</b></label>
+<input type="tel" 
+placeholder="Enter PHONE NUMBER" id="phone2" name="phone2"
+       pattern="[0-9]{10}"
+       required>
+       <div id="ph_error2">Invalid PHONE NUMBER</div>    
+    <hr> 
+    </div>
+    <div class=member3>
+    <h3  style="font-size: larger;">Member 3:</h3>
+    <br>
+    <label for="name3"  style="font-size: larger;"><b>NAME:</b></label>
+    <input type="text" placeholder="Enter NAME" name="name3" id="name3" required>
+    <br>
+    <label for="usn3"  style="font-size: larger;"><b>USN:</b></label>
+    <input type="text" placeholder="Enter USN" name="usn3" id="usn3" required>
+    <div id="USN_error3">Invalid USN</div>
+    <br>
+    <label for="e3"  style="font-size: larger;"><b>EMAIL ID:</b></label>
+    <input type="text" placeholder="Enter  EMAIL ID" name="e3" id="e3" required>
+    <div id="semail_error3">Invalid Email</div>
+    <br>
+    
+    <label for="phone3"  style="font-size: larger;"><b>PHONE NUMBER:</b></label>
+<input type="tel" placeholder="Enter PHONE NUMBER" id="phone3" name="phone3"
+       pattern="[0-9]{10}"
+       required>   
+       <div id="ph_error3">Invalid PHONE NUMBER</div>   
+    <hr>
+    </div>
+    <div class=member4>
+    <h3  style="font-size: larger;">Member 4:</h3>
+    <br>
+    <label for="name4" style="font-size: larger;"><b>NAME:</b></label>
+    <input type="text" placeholder="Enter NAME" name="name4" id="name4" required>
+    <br>
+    <label for="usn4" style="font-size: larger;"><b>USN:</b></label>
+    <input type="text" placeholder="Enter USN" name="usn4" id="usn4" required>
+    <div id="USN_error4">Invalid USN</div>
+    <br>
+    <label for="e4" style="font-size: larger;"><b>EMAIL ID:</b></label>
+    <input type="text" placeholder="Enter EMAIL ID" name="e4" id="e4" required>
+    <div id="semail_error4">Invalid Email</div>
+    <br>
+    <label for="phone4" style="font-size: larger;" ><b>PHONE NUMBER:</b></label>
+<input type="tel" placeholder="Enter PHONE NUMBER" id="phone4" name="phone4"
+       pattern="[0-9]{10}"
+       required>
+       <div id="ph_error4">Invalid PHONE NUMBER</div>
+    <hr>   
+    </div>
+    <div class=sub> <input type="submit" onclick="validate1();" class="submitbtn" value="SUBMIT" /> </div>
+  </div>   
+</body>
+</html>

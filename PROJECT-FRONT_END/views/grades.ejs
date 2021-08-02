@@ -1,0 +1,176 @@
+<%- include('partials/header') %>
+    <title>Grades</title>
+    <link rel="stylesheet" href="/css/grades.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+        </script>
+    <script src="/js/grades.js"></script>
+
+    <!-- //For Google Pie Chart -->
+    <% console.log(dataArray); %>
+<script >
+    var newArr = ['Task', 'HTML', 'CSS', 'JAVASCRIPT', 'Report', 'ORALCOMMUNICATION', 'Marks per Criteria'];
+     var array = <%= dataArray %>;
+    for(let i = 0; i < array.length; i++){
+        array[i][0] = newArr[i];
+    }
+    array[0][1] = newArr[6];
+
+        console.log("hi", array);
+google.charts.load('current', {
+    'packages': ['corechart']
+});
+google.charts.setOnLoadCallback(drawChart);
+
+
+function drawChart() {
+    
+    
+    var data = google.visualization.arrayToDataTable(array);
+    var options = {
+        'title': 'FINAL MARKS DISTRIBUTION ',
+        'width': 600,
+        'height': 400,
+        is3D: true,
+        legend: 'none',
+        fontSize: 20,
+        height: 400,
+        slices: [{
+            color: 'black'
+        }, {
+            color: 'red'
+        }, {
+            color: 'yellow'
+        }, {
+            color: 'blue'
+        }, {
+            color: 'green'
+        }],
+    };
+
+    var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+    chart.draw(data, options);
+}
+</script>
+    <script>
+        $(function () {
+            $('.circlechart').circlechart();
+        });
+    </script>
+
+</head>
+
+<body>
+    <header>
+        <h1>BMSCE ONLINE PROJECT SUBMISSION PORTAL</h1>
+    </header>
+    <div class="container">
+
+        <div class="menu">
+            <ul>
+                <li><a href="/student/report">Report Submission</a></li>
+                <li><a href="/student/appointment">Schedule an Appointment</a></li>
+                <li><a href="/student/psub">Project Submission</a></li>
+                <li class="active"><a href="/student/grades">Grades</a></li>
+                <li><a href="/suser/logout">Logout</a></li>
+            </ul>
+        </div>
+        <div class="main">
+            <div class="donuts">
+                <div id="donut">
+                    <div class="circlechart" data-percentage="<%=cie%>">CIE</div>
+                </div>
+                <div id="donut">
+                    <div class="circlechart" data-percentage="<%=see%>">SEE</div>
+                </div>
+                <div id="donut">
+                    <div class="circlechart" data-percentage="<%=total%>">TOTAL</div>
+                </div>
+            </div>
+           
+            <div class="piemain">
+                <div id="piechart"></div>
+            </div>
+
+            <div class="tbl-main">
+                <div class="table">
+                    <table>
+                        <tr>
+                            <th>Criteria</th>
+                            <th>Total points</th>
+                            <th>Color</th>
+                        </tr>
+                        <tr>
+                            <td>Javascript</td>
+                            <td>10</td>
+                            <td style="background-color:red;"></td>
+                        </tr>
+                        <tr>
+                            <td>Navigation</td>
+                            <td>10</td>
+                            <td style="background-color:black;"></td>
+                        </tr>
+                        <tr>
+                            <td>Css</td>
+                            <td>10</td>
+                            <td style="background-color:yellow;"></td>
+                        </tr>
+                        <tr>
+                            <td>Report</td>
+                            <td>10</td>
+                            <td style="background-color:blue;"></td>
+                        </tr>
+                        <tr>
+                            <td>Presentation</td>
+                            <td>10</td>
+                            <td style="background-color:green;"></td>
+                        </tr>
+
+                    </table>
+                </div>
+            </div>
+            <div class="g-container a">
+                <h3>Instructor Remarks</h3>
+                <% console.log("gili",remarks); %>
+
+                <% remarks.forEach(remark=>{ %>
+
+                    <div class="g-row">
+                        <div class="m2">
+                            <img class="g-circle" src="/photos/avatar3.png" style="width:96px;height:96px">
+                        </div>
+                        <div class="m10">
+                            <h4><%= tname.NAME %></h4>
+                            <p><%= remark.REMARK %></p><br>
+                        </div>
+                    </div>
+                <% }); %>
+                
+
+                
+            </div>
+            <div class="g-container b">
+                <h3>Student Info:</h3>
+                <ul class="g-ul g-card-4 g-white">
+                    <li class="g-padding-16">
+                        <img src="/photos/avatar1.png" class="g-left g-circle g-margin-right" style="width:40px">
+                        <span class="g-xlarge"><%=name%></span><br>
+                    </li>
+                    <li class="g-padding-16">
+                        <span class="g-xlarge">USN:<%=usn%></span><br>
+                    </li>
+                    <li class="g-padding-16">
+                        <span class="g-xlarge">EMAIL ID:<%=email%></span><br>
+                    </li>
+                    <li class="g-padding-16">
+                        <span class="g-xlarge">PHONE NUMBER:<%=phoneno%></span><br>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+<%- include('partials/footer') %>

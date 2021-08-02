@@ -1,0 +1,211 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Century Gothic;
+}
+
+body {
+    background-image: url("../photos/email-pattern.png");
+}
+
+header {
+    width: 100%;
+    height: 10vh;
+    background: #fff;
+}
+
+header h1 {
+    padding-top: 15px;
+    text-align: center;
+}
+
+.container {
+    width: 100%;
+    height: 90vh;
+    display: grid;
+    background-size: cover;
+    grid-template-columns: 25% 1fr;
+    grid-template-rows: 8% 1fr;
+}
+
+.menu ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 15px;
+}
+
+.menu ul li {
+    list-style: none;
+    margin: 0 20px;
+    cursor: pointer;
+}
+
+.menu ul li a {
+    text-decoration: none;
+    font-size: 1.2rem;
+    color: #fff;
+    padding: 8px;
+    border: 1px solid #fff;
+    border-radius: 49px;
+    transition: 0.5s ease;
+}
+
+ul li.active a {
+    color: #000;
+    background: #fff;
+}
+
+.menu ul li a:hover {
+    color: #000;
+    background: #fff;
+}
+
+.menu {
+    grid-row: 1/2;
+    grid-column: 2/3;
+    background: #593535;
+}
+
+.sidebar {
+    grid-column: 1/2;
+    grid-row: 1/3;
+    background: #593535;
+}
+
+.name {
+    border: 1px solid #fff;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: 5px;
+    margin-top: 1%;
+    border-radius: 5px;
+    background-image: url(../photos/email-pattern.png);
+    padding: 5px;
+    transform: translateY(10px);
+    height: 15vh;
+    font-size: larger;
+}
+
+.notifications {
+    border: 1px solid #fff;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: 5px;
+    margin-top: 0;
+    border-radius: 5px;
+    background-image: url(../photos/email-pattern.png);
+    padding: 5px;
+    transform: translateY(30px);
+    height: 68vh;
+    font-size: larger;
+}
+
+.notifications ul li {
+    padding-top: 10px;
+}
+.notifications ul li:hover {
+    transform: scale(1.1);
+}
+
+
+
+.instruc ul {
+    list-style: circle;
+}
+
+.btn {
+    margin-top: 10px;
+    /* margin-left: 10%; */
+    padding: 10px;
+    width: 100px;
+    border-radius: 49px;
+    background-image: linear-gradient(#196ffa, #213e6e);
+    text-decoration: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: x-large;
+    font-style: normal;
+}
+
+.btn:hover {
+    background: linear-gradient( #213e6e,#196ffa);
+}
+
+.btn:active {
+    transform: scale(0.9);
+}
+
+/* .main{
+    margin-left: 2%;
+    margin-right: 2%;
+} */
+
+.instructions {
+    padding-left: 10%;
+    padding-top: 5%;
+}
+
+.main {
+    grid-column: 2/3;
+    grid-row: 2/3;
+}
+
+form{
+    padding-left: 10%;
+}
+
+#link{
+    width: 60%;
+}
+
+table,
+th,
+td {
+    border: 1px solid black;
+}
+
+table {
+    width: 80%;
+    margin-left: 9%;
+    text-align: center;
+}
+
+th,
+td {
+    padding: 15px;
+}
+
+.table p {
+    margin-left: 9%;
+}
+
+
+/* .disap {
+    display: none;
+} */
+
+.table {
+    margin-top: 4%;
+}
+
+
+.descrip{
+    border: 2px solid black;
+    border-radius: 5px;
+    background-color: white;
+    width: 50%;
+    width: 80%;
+    margin-left: 9%;
+    text-align: center;
+    padding: 15px;
+}
+
+.descrip p{
+    text-align: left;
+    padding-top: 1%;
+}

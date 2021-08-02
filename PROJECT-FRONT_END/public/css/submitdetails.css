@@ -1,0 +1,139 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap");
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: Century Gothic;
+    background-image: url(../photos/email-pattern.png);
+}
+.heading{
+    font-size: x-large;
+    padding-top:2%;
+    padding-bottom:2%;
+    padding-left: 11.5%;
+    color:  #593535;
+     /* position: fixed;  */
+    width: 100%;
+    z-index:1000;
+    background-color: white;
+    margin-bottom: 20px;
+}
+ /* .container
+{
+    position: relative;
+    top:2px;
+    transform: translateY(20vh);
+    z-index:1;
+}  */
+.fieldsteam{
+    font-size: x-large;
+      margin-left: 2%;
+      margin-bottom: 2%;
+      color: #593535
+}
+.fields{
+    font-size: xx-large;
+      margin-left: 2%;
+      margin-bottom: 2%;
+      color: #593535;   
+      font-weight: bold;
+}
+#projecttitle
+{
+    width:30% ;
+    height:30px;
+    font-size: large;
+}
+#members,#section{
+    height:27px;
+    font-size: large;
+}
+.submitbtn
+{
+    height:50px ;
+    width: 200px;
+    overflow: hidden;
+    line-height: 2rem;
+    border-radius: 50px;
+    border: none;
+    outline: none;
+    background-image: linear-gradient(#196ffa, #213e6e);
+    font-weight: 600;
+    margin-top: 2%;
+    font-size: x-large;
+}
+.submitbtn:active {
+    transform: scale(0.9);
+    background-image: linear-gradient( #213e6e, #196ffa);
+}
+.sub{
+    text-align: center;
+    /* display: none; */
+}
+.submitbtn1{
+    margin-left:12%;
+    height:50px ;
+    width: 100px;
+    overflow: hidden;
+    line-height: 2rem;
+    border-radius: 50px;
+    border: none;
+    outline: none;
+    background-image: linear-gradient(#196ffa, #213e6e); 
+    font-weight: 600;
+    font-size: large;
+     
+}
+.submitbtn1:active {
+    transform: scale(0.9);
+    background-image: linear-gradient( #213e6e, #196ffa);
+}
+
+#name1,#name2,#name3,#name4
+{
+    font-size: larger;
+    text-align: left;
+    margin-bottom: 2%;
+    width: 29%;
+}
+#e1,#e2,#e3,#e4
+{
+    font-size: larger;
+    text-align: left;
+    margin-bottom: 2%;
+    width: 27.5%;
+}
+#usn1,#usn2,#usn3,#usn4
+{
+    font-size: larger;
+    text-align: left;
+    margin-bottom: 2%;
+    width: 30%;
+}
+#phone1,#phone2,#phone3,#phone4
+{
+    font-size: larger;
+    text-align: left;
+    margin-bottom: 2%;
+    width: 23.8%;
+}
+#USN_error1,#USN_error2,#USN_error3,#USN_error4,
+#ph_error1,#ph_error2,#ph_error3,#ph_error4,
+#semail_error1,#semail_error2,#semail_error3,#semail_error4 {
+    color: red;
+    font-weight: 600;
+    display:none;
+}
+.member1,.member2,.member3,.member4{
+    display:none;
+margin-left: 2%;
+margin-right: 2%;
+color: #593535;
+}
+/* .fields4{
+    display: none;
+} */
+
+    

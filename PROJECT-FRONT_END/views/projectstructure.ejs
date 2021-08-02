@@ -1,0 +1,14 @@
+<%- include('partials/header') %>
+<title><%=result[0].PROJECT_TITLE%> STRUCTURE</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+<body>
+     <div class="jumbotron jumbotron-fluid" style="background-color: #aa9191;">
+          <div class="container">
+               <h1 class="display-3"><%=result[0].PROJECT_TITLE%></h1>
+               <p class="lead"><%=result[0].STRUCTURE%></p>
+          </div>
+     </div>
+
+     <%- include('partials/footer') %>

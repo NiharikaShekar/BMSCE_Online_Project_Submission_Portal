@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./css/login.css">
+    <script type="text/javascript" src="./js/login.js"></script>
+
+    <title>Login and Signup</title>
+
+</head>
+
+<body>
+
+    <div class="container" id="container">
+
+        <div class="forms">
+            <div class="forms-container login-container">
+                <form action="submitdetails.html" class="log-in-form" name="log-in-form" onsubmit="return validatelog();">
+                    <h1 class="title">Student Login</h1>
+
+                    <div class="input-field">
+                        <i class="fas fa-user"></i>
+                        <input type="text" placeholder="USN Or Email" name="email" required/>
+
+                    </div>
+                    <div id="email_error">Invalid USN Or Email</div>
+                    <div class="input-field">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" placeholder="Password" name="password" required/>
+
+
+
+                    </div>
+                    <div id="password_error">Invalid Password Format</div>
+                    <div id="remember"><input type="checkbox" name="remember">Remember me
+                        <a id="remember" href="#">Forgot Password ?</a>
+                    </div>
+
+                    <a href="submitdetails.html"><input type="submit" value="Login" class="btn solid" /></a>
+                    <p class="bms-text">Or Go to Bmsce Sites</p>
+                    <div class="bms-media">
+                        <a href="https://www.bmsce.ac.in/" class="bms-icon">
+                            <i class="fa fa-university"></i>
+                        </a>
+                        <a href="https://campus.bmsce.ac.in/student/" class="bms-icon">
+                            <i class="fa fa-users"></i>
+                        </a>
+
+                    </div>
+
+                </form>
+            </div>
+            <div class="forms-container signup-container">
+                <form action="submitdetails.html" class="sign-up-form" name="sign-up-form" onsubmit="return validatesign()">
+                    <h1 class="title">Signup</h1>
+                    <div class="input-field">
+                        <i class="fas fa-user"></i>
+                        <input type="text" placeholder="USN" name="usn" required/>
+                    </div>
+                    <div id="usn_error">Invalid USN</div>
+                    <div class="input-field">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" placeholder="Email" name="semail" required/>
+                    </div>
+                    <div id="semail_error">Invalid Email</div>
+                    <div class="input-field">
+                        <i class="fas fa-unlock-alt"></i>
+                        <input type="password" placeholder="Create A New Password" name="spassword" required/>
+                    </div>
+                    <div id="spassword_error">Invalid Password Format</div>
+                    <div class="input-field">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" placeholder="Confirm New Password" name="cpassword" required/>
+                    </div>
+                    <div id="cpassword_error">Password must match</div>
+                    <a href="submitdetails.html"><input type="submit" class="btn" value="Signup" /></a>
+                    <p class="bms-text">Or Go to Bmsce Sites</p>
+                    <div class="bms-media">
+                        <a href="https://www.bmsce.ac.in/" class="bms-icon">
+                            <i class="fa fa-university"></i>
+                        </a>
+                        <a href="https://campus.bmsce.ac.in/student/" class="bms-icon">
+                            <i class="fa fa-users"></i>
+                        </a>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="panels-container">
+            <div class="panel">
+                <div class=" panels right-panel">
+                    <div class="content">
+
+                        <h2>Not Registered ?</h2>
+                        <p>
+                            If you have not registered, signup to get started.
+                        </p>
+                        <button class="btn transparent" id="sign-up-btn" onclick="clearlog()">
+                Signup
+            </button>
+
+                        <br>
+                        <br>
+
+                        <p>
+                            If you are an Admin, <a href="./alogin.html">Login As Admin</a>
+                        </p>
+
+
+                        </button>
+                    </div>
+
+                </div>
+                <div class="panels left-panel">
+                    <div class="content">
+
+                        <h2>Already Registered ?</h2>
+                        <p>
+                            If you have already registered, login to get started.
+                        </p>
+                        <button class="btn transparent" id="log-in-btn" onclick="clearsign()">
+                Login
+            </button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

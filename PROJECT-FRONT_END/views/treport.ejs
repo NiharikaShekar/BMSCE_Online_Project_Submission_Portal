@@ -1,0 +1,168 @@
+<%- include('partials/header') %>
+<title>Teacher home page</title>
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+<link rel="stylesheet" href="/css/viewreport.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+</head>
+
+<body>
+  <div style="background-image: url(./photos/email-pattern.png);">
+    <div class="header">
+      <h1>BMSCE ONLINE PROJECT SUBMISSION PORTAL</h1>
+    </div>
+    <p class="abc">WELCOME TO TEACHER'S HOME PAGE!</p>
+    <br />
+    <div class="border1">
+      <div class="row">
+        <div class="column side">
+          <div class="border">
+            <h1 style="font-size: 30px"><%=result[0].NAME%></h1>
+            <i class="fa fa-user" style="font-size: 23px">
+              <%=result[0].EMAIL%></i>
+            <br />
+            <br />
+            <br />
+            <% var pending=0 %>
+              <% var yetTo=0 %>
+              <!-- ----------------------------------------- -->
+               <%if(result2.length==0){%>
+
+
+
+            <%}else{%>
+
+            <% for(var i=0;i<values.length;i++){ %>
+            
+                  <% for(let j = 0; j<result[i].MEMBERS_NO;j++){ %>
+                  
+                  <% }  %>
+               
+              <%var indexz=values[i].length-1%>
+              <%if(((indexz+1)-result[i].MEMBERS_NO)!=0){%>
+              
+                
+              <%if(values[i][indexz].STATUS==="PENDING"){%>
+                <% pending++; %>
+             
+              <%}else if(values[i][indexz].STATUS==="APPROVED"){%>
+              
+              <%}else{%>
+              
+              <%}%>
+                <%}else{%>
+                  <% yetTo++ %>
+             
+              <%}%>
+            
+            <% } %>
+
+              <%}%>
+<!-- 
+              ------------------------------------- -->
+            <div class="flip-box">
+              <div class="flip-box-inner">
+                <div class="flip-box-front">
+                  <h2 style="font-size: 20px">
+                    Number of teams yet to submit the report
+                  </h2>
+                </div>
+                <div class="flip-box-back">
+                  <h2><%= yetTo %></h2>
+                </div>
+              </div>
+            </div>
+            <div class="flip-box">
+              <div class="flip-box-inner">
+                <div class="flip-box-front">
+                  <h2 style="font-size: 20px">
+                    Number of teams whose report has to be approved
+                  </h2>
+                </div>
+                <div class="flip-box-back">
+                  <h2><%= pending %></h2>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="column middle">
+          <div class="topnav">
+            <a class="active" href="/teacher/viewreport" style="color: black">View Reports</a>
+            <a href="/teacher/scheduleappointment">Appointments</a>
+            <a href="/teacher/viewproject">View Projects</a>
+            <a href="/teacher/grading">Grading </a>
+            <a href="/teacheruser/logout">Logout </a>
+          </div>
+
+          <h2 style="font-size: 20px">
+            <span style="font-size: 20px">&#9733;</span> List of reports
+            submitted by teams:
+          </h2>
+         
+          <table id="teachers" class="table">
+            <tr>
+              <th>Teams</th>
+              <th>Topics</th>
+              <th>Report</th>
+              <th>Approval</th>
+            </tr>
+            <%if(result2.length==0){%>
+
+
+
+            <%}else{%>
+
+            <% for(var i=0;i<values.length;i++){ %>
+            <tr>
+              <td>
+                <ul>
+                  <% for(let j = 0; j<result[i].MEMBERS_NO;j++){ %>
+                  <li><%= values[i][j].NAME %></li>
+                  <% }  %>
+                </ul>
+              </td>
+              <td><%= result[i].PROJECT_TITLE %></td>
+              <%var index=values[i].length-1%>
+              <%if(((index+1)-result[i].MEMBERS_NO)!=0){%>
+              <td>
+                <%var l=values[i][index].length%>
+                <a target="_blank" href="<%= values[i][index].LINK %>"><i class="fas fa-file-alt">
+                    <%= values[i][index].LINK.substring(63,l) %></i></a>
+              </td>
+              <%if(values[i][index].STATUS==="PENDING"){%>
+                
+              <td class="approval">
+                <form action="/teacher/viewreport" method="POST">
+                  <!-- <input type="checkbox" class="checkbox" name="checkBox2" onchange="this.form.submit()" /> -->
+                  <input type="radio" id="approve" name="approval" value="APPROVED" onchange="this.form.submit()">
+                  <label for="APPROVE">APPROVE</label><br>
+                  <input type="radio" id="disapprove" name="approval" value="DISAPPROVED" onchange="this.form.submit()">
+                  <label for="DISAPPROVE">DISAPPROVE</label><br>
+                  <input type="hidden" name="projectId" value="<%=result[i].PROJECT_ID%>" />
+                </form>
+              </td>
+              <%}else if(values[i][index].STATUS==="APPROVED"){%>
+              <td>
+                <p>APPROVED</p>
+              </td>
+              <%}else{%>
+              <td>
+                <p>DISAPPROVED</p>
+              </td>
+              <%}%>
+                <%}else{%>
+                  
+              <td>NOT YET SUBMITTED</td>
+              <%}%>
+            </tr>
+            <% } %>
+
+              <%}%>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div>
+      <%- include('partials/footer') %>

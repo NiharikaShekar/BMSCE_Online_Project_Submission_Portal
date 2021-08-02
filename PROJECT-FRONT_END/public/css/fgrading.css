@@ -1,0 +1,97 @@
+.styled-table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.styled-table thead tr {
+    background-color: #772f1a;
+    color: #ffffff;
+    text-align: left;
+}
+
+.styled-table th,
+.styled-table td {
+    padding: 12px 15px;
+}
+
+.styled-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.styled-table tbody tr:last-of-type {
+    border-bottom: 2px solid #772f1a;
+}
+
+input[type=submit] {
+
+    background-color: rgb(57, 2, 255);
+    /* Grey background */
+    border: 1px solid #ddd;
+    /* Dark grey border */
+    color: #fff;
+    /* Black text color */
+    font-size: 1em;
+    /* Size of text */
+    padding: 10px 15px;
+    /* Distance between text and border */
+    border-radius: 40px;
+    float: right;
+}
+
+.cptn {
+    color: #772f1a;
+    font-weight: bolder;
+    font-size: larger;
+    text-align: left;
+}
+
+#change {
+    background-color: rgb(57, 2, 255);
+    /* Grey background */
+    border: 1px solid #ddd;
+    /* Dark grey border */
+    color: #fff;
+    /* Black text color */
+    font-size: 1em;
+    /* Size of text */
+    padding: 10px 15px;
+    /* Distance between text and border */
+    border-radius: 40px;
+    float: right;
+    width: 120px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    text-align: center;
+
+}
+
+/* for forms validation */
+/* input:invalid {
+    border: solid red 3px;
+} */
+
+input:in-range {
+    background-color: rgba(0, 255, 0, 0.25);
+}
+
+input:out-of-range {
+    background-color: rgba(255, 0, 0, 0.25);
+    border: 2px solid red;
+}
+
+.remark{
+    display: none;
+}
+
+#change{
+    margin-top: 7%;
+}

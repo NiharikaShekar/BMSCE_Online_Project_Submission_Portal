@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./css/alogin.css">
+    <script type="text/javascript" src="./js/alogin.js"></script>
+
+    <title>Login as Admin</title>
+
+</head>
+
+<body>
+    <div class="container" id="container">
+        <div class="form">
+            <form action="viewreport.html" class="log-in-form" name="log-in-form" onsubmit="return validatelog();">
+                <h2 class="title">Admin Login</h2>
+
+                <div class="input-field">
+                    <i class="fas fa-user"></i>
+                    <input type="text" placeholder="Email" name="email" required />
+
+                </div>
+                <div id="email_error">Invalid Email</div>
+                <div class="input-field">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" placeholder="Password" name="password" required />
+
+
+
+                </div>
+                <div id="password_error">Invalid Password Format</div>
+                <div id="remember"><input type="checkbox" name="remember">Remember me
+                    <a id="remember" href="#">Forgot Password ?</a>
+                </div>
+                <a href="submitdetails.html"><input type="submit" value="Login" class="btn solid" /></a>
+                <p class="bms-text">Or Go to Bmsce Sites</p>
+                <div class="bms-media">
+                    <a href="https://www.bmsce.ac.in/" class="bms-icon">
+                        <i class="fa fa-university"></i>
+                    </a>
+                    <a href="https://campus.bmsce.ac.in/faculty/" class="bms-icon">
+                        <i class="fa fa-users"></i>
+                    </a>
+
+                </div>
+
+            </form>
+            <p id="others">
+                If you are a Student, <a href="./login.html">Login As Student</a>
+            </p>
+        </div>
+
+
+    </div>
+</body>
+
+</html>

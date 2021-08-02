@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Tab</title>
+    <link rel="stylesheet" href="./css/report.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="./js/report.js"></script>
+</head>
+
+<body>
+    <header>
+        <h1>BMSCE ONLINE PROJECT SUBMISSION PORTAL</h1>
+    </header>
+    <div class="container">
+        <div class="sidebar">
+            <div class="name">
+                <h3>Welcome</h3>
+                <p><i class="fa fa-user" aria-hidden="true"></i>XYZ <br> XYZ.cs19@bmsce.ac.in
+                </p>
+            </div>
+            <div class="notifications">
+                <h3 style="color: #593535;">NOTIFICATIONS:</h3>
+                <ul>
+                    <li>LAST DAY TO SUBMIT YOUR REPORT IS-29TH SEPTEMBER</li>
+                    <hr>
+                    <li>APPOINTMENT HAS BEEN SCHEDULED AT 14TH NOV-5:45PM</li>
+                    <hr>
+                    <li>LAST DAY TO SUBMIT YOUR PROJECT IS-29TH NOVEMBER</li>
+                    <hr>
+                    <li>PRESENTATION HAS BEEN SCHEDULED AT:17TH OCTOBER-3:45PM</li>
+                    <hr>
+                    <li>FINAL GRADES HAVE BEEN GIVEN FOR YOUR PROJECT SUBMISSION</li>
+                    <hr>
+                </ul>
+            </div>
+        </div>
+        <div class="menu">
+            <ul>
+                <li class="active"><a href="report.html">Report Submission</a></li>
+                <li><a href="app.html">Schedule an Appointment</a></li>
+                <li><a href="./psub.html">Project Submission</a></li>
+                <li><a href="./grades.html">Grades</a></li>
+                <li><a href="login.html">Logout</a></li>
+            </ul>
+        </div>
+        <div class="main">
+
+            <h1 style="color:#593535; padding-top: 2%; padding-left: 2%;">UPLOAD YOUR REPORT:</h1>
+
+            <div class="instructions">
+                <h3 style="color:#593535;">Instructions:</h3>
+                <ol>
+                    <li>THE REPORT SHOULD BE IN DOC FORMAT(.docx)</li>
+                    <li>REPORT SHOULD BE IN THE SAME FORMAT AS THAT OF THE SAMPLE REPORT</li>
+                    <li>IMAGES OF HANDWRITTEN WEBPAGES MUST BE INCLUDED</li>
+                    <li>PLEASE MAKE SURE THE REPORT IS ERROR FREE</li>
+                </ol>
+            </div>
+            <div class="disap drop-zone">
+                <span class="drop-zone__prompt">Drop file here or click to upload</span>
+                <input type="file" name="myFile" class="drop-zone__input">
+            </div>
+            <input type="button" value="SUBMIT" class="disap btn" onclick="makechg();">
+            <div class="table">
+                <table>
+                    <caption>Submitted details</caption>
+                    <tr>
+                        <th>Team</th>
+                        <th>Title</th>
+                        <th>Document</th>
+                        <th>Time</th>
+                        <th>Status</th>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>Project Submission</td>
+                        <td>report.docx</td>
+                        <td id="type">10:00PM,26 May</td>
+                        <td>Pending</td>
+                    </tr>
+
+                </table>
+                <p>*You will be informed about your submission status when your report is evaluated.</p>
+            </div>
+        </div>
+
+
+    </div>
+
+</body>
+
+</html>

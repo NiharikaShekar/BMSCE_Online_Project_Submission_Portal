@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grades</title>
+    <link rel="stylesheet" href="./css/grades.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/fontawesome.min.css">
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+    <script type="text/javascript">
+        google.charts.load('current', {
+            'packages': ['corechart']
+        });
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+            var data = google.visualization.arrayToDataTable([
+                ['Task', 'Marks per Criteria'],
+                ['Navigation', 9],
+                ['Javascript(Validation of fields)', 8],
+                ['Css(Background)', 7],
+                ['Report', 9],
+                ['Presentation', 10]
+            ]);
+
+            var options = {
+                'title': 'FINAL MARKS DISTRIBUTION ',
+                'width': 600,
+                'height': 400,
+                is3D: true,
+                legend: 'none',
+                fontSize: 20,
+                height: 400,
+                slices: [{
+                    color: 'black'
+                }, {
+                    color: 'red'
+                }, {
+                    color: 'yellow'
+                }, {
+                    color: 'blue'
+                }, {
+                    color: 'green'
+                }],
+            };
+
+
+            var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+            chart.draw(data, options);
+        }
+    </script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+
+    <script src="./js/grades.js"></script>
+
+    <script>
+        $(function() {
+
+            $('.circlechart').circlechart();
+
+        });
+    </script>
+
+</head>
+
+<body>
+    <header>
+        <h1>BMSCE ONLINE PROJECT SUBMISSION PORTAL</h1>
+    </header>
+    <div class="container">
+
+        <div class="menu">
+            <ul>
+                <li><a href="report.html">Report Submission</a></li>
+                <li><a href="app.html">Schedule an Appointment</a></li>
+                <li><a href="psub.html">Project Submission</a></li>
+                <li class="active"><a href="grades.html">Grades</a></li>
+                <li><a href="login.html">Logout</a></li>
+            </ul>
+        </div>
+        <div class="main">
+            <div class="donuts">
+                <div id="donut">
+                    <div class="circlechart" data-percentage="30">CIE</div>
+                </div>
+                <div id="donut">
+                    <div class="circlechart" data-percentage="60">SEE</div>
+                </div>
+                <div id="donut">
+                    <div class="circlechart" data-percentage="45">TOTAL</div>
+                </div>
+
+            </div>
+
+
+            <div class="piemain">
+                <div id="piechart"></div>
+            </div>
+            <div class="tbl-main">
+                <div class="table">
+                    <table>
+                        <tr>
+                            <th>Criteria</th>
+                            <th>Total points</th>
+                            <th>Color</th>
+                        </tr>
+                        <tr>
+                            <td>Javascript</td>
+                            <td>10</td>
+                            <td style="background-color:red;"></td>
+                        </tr>
+                        <tr>
+                            <td>Navigation</td>
+                            <td>10</td>
+                            <td style="background-color:black;"></td>
+                        </tr>
+                        <tr>
+                            <td>Css</td>
+                            <td>10</td>
+                            <td style="background-color:yellow;"></td>
+                        </tr>
+                        <tr>
+                            <td>Report</td>
+                            <td>10</td>
+                            <td style="background-color:blue;"></td>
+                        </tr>
+                        <tr>
+                            <td>Presentation</td>
+                            <td>10</td>
+                            <td style="background-color:green;"></td>
+                        </tr>
+
+                    </table>
+                </div>
+            </div>
+            <div class="g-container a">
+                <h3>Instructor Remarks</h3>
+                <div class="g-row">
+                    <div class="m2">
+                        <img class="g-circle" src="./photos/avatar3.png" style="width:96px;height:96px">
+                    </div>
+                    <div class="m10">
+                        <h4>Dr.Umadevi <span class="g-opacity g-medium">Sep 29, 2020, 9:12 PM</span></h4>
+                        <p>Keep up the GREAT work!</p><br>
+                    </div>
+                </div>
+
+                <div class="g-row">
+                    <div class="m2">
+                        <img class="g-circle" src="./photos/avatar1.png" style="width:96px;height:96px">
+                    </div>
+                    <div class="m10">
+                        <h4>Bhoomika A P <span class="g-opacity g-medium">Sep 28, 2020, 10:15 PM</span></h4>
+                        <p>Well Done!Slight modifications can be done with the code</p><br>
+                    </div>
+                </div>
+            </div>
+            <div class="g-container b">
+                <h3>Team Members</h3>
+                <ul class="g-ul g-card-4 g-white">
+                    <li class="g-padding-16">
+                        <img src="./photos/avatar1.png" class="g-left g-circle g-margin-right" style="width:40px">
+                        <span class="g-xlarge">XYZ</span><br>
+                    </li>
+                    <li class="g-padding-16">
+                        <img src="./photos/avatar1.png" class="g-left g-circle g-margin-right" style="width:40px">
+                        <span class="g-xlarge">ABC</span><br>
+                    </li>
+                    <li class="g-padding-16">
+                        <img src="./photos/avatar1.png" class="g-left g-circle g-margin-right" style="width:40px">
+                        <span class="g-xlarge">PQR</span><br>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+
+</html>

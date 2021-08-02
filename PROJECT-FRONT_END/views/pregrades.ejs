@@ -1,0 +1,66 @@
+<%- include('partials/header') %>
+    <title>Grades</title>
+    <link rel="stylesheet" href="/css/pregrades.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/7909e8b9ea.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <header>
+        <h1>BMSCE ONLINE PROJECT SUBMISSION PORTAL</h1>
+    </header>
+    <div class="container">
+     <div class="sidebar">
+          <div class="name">
+               <p><i class="fas fa-project-diagram"></i>
+                   <h2>PROJECT NAME:</h2>
+                   <h3>
+                       <%=pname%>
+                   </h3>
+               </p>
+           </div>
+          <div class="notifications">
+              <h3 style="color: #593535;">NOTIFICATIONS:</h3>
+              <ul>
+                   <% noti.forEach(not=>{ %>
+                            <li>
+                                <%= not.TEXT %>
+                            </li>
+                            <hr>
+                            <%}); %>
+              </ul>
+          </div>
+      </div>
+        <div class="menu">
+            <ul>
+                <li><a href="/student/report">Report Submission</a></li>
+                <li><a href="/student/appointment">Schedule an Appointment</a></li>
+                <li><a href="/student/psub">Project Submission</a></li>
+                <li class="active"><a href="/student/grades">Grades</a></li>
+                <li><a href="/suser/logout">Logout</a></li>
+            </ul>
+        </div>
+        <div class="main">
+             <%if(res==0){%>
+           <h1>NOT YET GRADED</h1>
+           <%}else{%>
+               <div class="g-container b">
+                    <h2>GRADES:</h2>
+                    <h3>Team Members</h3>
+                            <ul class="g-ul g-card-4 g-white">
+                         <%for(var i=0;i<res.length;i++){%>      
+                        <form action="/student/grades" method="post" id="<%=res[i].USN%>">
+                        <li  class="g-padding-16" onclick="document.getElementById('<%=res[i].USN%>').submit();">
+                            <img src="/photos/avatar1.png" class="g-left g-circle g-margin-right" style="width:40px"/>
+                            <span class="g-xlarge"><%=res[i].NAME%></span>
+                            <br>
+                            <input type="hidden" name="memberid" value="<%=res[i].USN%>"/>
+                         </li>                        
+                        </form>
+                            <%}%>
+                            
+                            </ul>                          
+                </div>
+               <%}%>
+    </div>
+<%- include('partials/footer') %>

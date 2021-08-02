@@ -1,0 +1,123 @@
+<%- include('partials/header') %>
+    <title>Schedule Appointment Tab</title>
+    <!-- for date picker -->
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>  
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script> -->
+    <!--  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/7909e8b9ea.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/css/app.css">
+    </head>
+    <body>
+        <header>
+            <h1>BMSCE ONLINE PROJECT SUBMISSION PORTAL</h1>
+        </header>
+        <div class="container1">
+            <div class="sidebar1">
+                <div class="name1">
+                    <p><i class="fas fa-project-diagram"></i>
+                        <h2>PROJECT NAME:</h2>
+                        <h3>
+                            <%=pname%>
+                        </h3>
+                    </p>
+                </div>
+                <div class="notifications1">
+                    <h3 style="color: #593535;">NOTIFICATIONS:</h3>
+                    <ul>
+                        <% noti.forEach(not=>{ %>
+                            <li>
+                                <%= not.TEXT %>
+                            </li>
+                            <hr>
+                            <%}); %>
+                    </ul>
+                </div>
+            </div>
+            <div class="menu1">
+                <ul>
+                    <li><a href="/student/report">Report Submission</a></li>
+                    <li class="active"><a href="/student/appointment">Request for an Appointment</a></li>
+                    <li><a href="/student/psub">Project Submission</a></li>
+                    <li><a href="/student/grades">Grades</a></li>
+                    <li><a href="/suser/logout">Logout</a></li>
+                </ul>
+            </div>
+            <div class="main1">
+                
+                    <% if(scheduled === 0){ %>
+
+                        <form action="/student/appointment" method="POST">
+                            <h2>PLEASE SELECT THE TYPE OF APPOINTMENT:</h2>
+                            <div class="toggle" id="toggle">
+                                <input type="radio" name="appointment" value="1" id="appointment1" checked="checked">
+                                <label for="appointment1">PRESENTATION</label><br><br>
+                                <input type="radio" name="appointment" value="2" id="appointment2">
+                                <label for="appointment2">DOUBT CLARIFICATION</label>
+                            </div>
+                            <div id="header">
+                                <h2>SELECT DATE AND TIME FOR THE APPOINTMENT:</h2>
+                            </div>
+                            <div class="time">
+                                <input type="datetime-local" id="appointmenttime" name="appointmenttime" required><br><br>
+                            </div>
+                            <!-- <div class="row">
+                                <div class='col-sm-6'>
+                                    <div class="form-group">
+                                        <div class='input-group date' id='datetimepickerDemo'>
+                                            <input type='text' name="appointmenttime" class="form-control" />
+                                            <span class="input-group-addon">
+                                                <span class="glyphicon glyphicon-calendar"></span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> -->
+                            <div id="button">
+                                <input type="submit" value="SUBMIT" class="disap btn1" onclick="validate();">
+                            </div>
+                        </form>
+                        <% }else {  %>
+                            <% console.log(date); %>
+                                <div class="table">
+                                    <table>
+                                        <caption style="text-align:left">APPOINTMENT DETAILS</caption>
+                                        <tr>
+                                            <th>TEAM NO</th>
+                                            <th>SCHEDULED BY</th>
+                                            <th>APPOINTMENT TYPE</th>
+                                            <th>DATE OF APPOINTMENT</th>
+                                            <th>APPROVAL</th>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <%= pid %>
+                                            </td>
+                                            <td>
+                                                <%= sby %>
+                                            </td>
+                                            <td id="type1">
+                                                <%= type %>
+                                            </td>
+                                            <td id="type2">
+                                                <%= date %>
+                                            </td>
+                                            <td>
+                                                <%= approval %>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <p>**THE LINK IS USUALLY UPDATED ONE DAY PRIOR TO APPOINTED DATE</p>
+                                </div>
+
+                                <% } %>
+
+            </div>
+        </div>
+        <script src="/js/app.js"></script>
+        <%- include('partials/footer') %>

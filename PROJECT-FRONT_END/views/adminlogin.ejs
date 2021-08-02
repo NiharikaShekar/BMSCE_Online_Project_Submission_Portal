@@ -1,0 +1,56 @@
+<%- include('partials/header') %>
+
+    <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/login.css">
+
+    <title>Login</title>
+
+    </head>
+
+    <body>
+
+        <div class="container" id="container">
+            <div class="form">
+                <div class="errors">
+                        <%if(loginerrors != ''){%>
+                            <div class="alert alert-danger" role="alert">
+                                <%= loginerrors %>
+                            </div>
+                            <%} %>
+                        </div>
+                                <!-- onsubmit="return validatelog(); -->
+                                <form action="/adminuser/login" class="log-in-form" name="log-in-form" method="POST">
+                                    <h1 class="title">Admin Login</h1>
+
+                                    <div class="input-field">
+                                        <i class="fas fa-users"></i>
+                                        <input type="text" placeholder="USERNAME" name="username" autocomplete="off" required/>
+
+                                    </div>
+                                    <div id="email_error">Invalid USN Or Email</div>
+                                    <div class="input-field">
+                                        <i class="fas fa-lock"></i>
+                                        <input type="password" placeholder="Password" name="password" autocomplete="off" required/>
+                                    </div>
+                                    <div id="password_error">Invalid Password Format</div>
+                                    <div id="remember"><input type="checkbox" name="remember">Remember me
+                                        <a id="remember" href="#">Forgot Password ?</a>
+                                    </div>
+                                    <a href="#"><input type="submit" value="Login" class="btn solid loginButton" /></a>
+                                    <p class="bms-text">Or Go to Bmsce Sites</p>
+                                    <div class="bms-media">
+                                        <a href="https://www.bmsce.ac.in/" class="bms-icon">
+                                            <i class="fa fa-university"></i>
+                                        </a>
+                                        <a href="https://campus.bmsce.ac.in/student/" class="bms-icon">
+                                            <i class="fa fa-users"></i>
+                                        </a>
+
+                                    </div>
+
+                                </form>
+            </div>
+        </div>
+        <script type="text/javascript" src="/js/login.js"></script>
+        <%- include('partials/footer') %>

@@ -1,0 +1,237 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Century Gothic;
+}
+
+body {
+    background-image: url(../photos/email-pattern.png);
+    /* background-repeat: no-repeat; */
+    /* background-size: cover; */
+    /* linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), */
+}
+
+header {
+    width: 100%;
+    height: 10vh;
+    background: #fff;
+}
+
+header h1 {
+    padding-top: 15px;
+    text-align: center;
+}
+h2,h3{
+    color: #593535;
+}
+.container {
+    width: 100%;
+    height: 90vh;
+    display: grid;
+    background-size: cover;
+    grid-template-columns: 25% 1fr;
+    grid-template-rows: 8% 1fr;
+}
+
+.menu ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 15px;
+}
+
+.menu ul li {
+    list-style: none;
+    margin: 0 20px;
+    cursor: pointer;
+}
+
+.menu ul li a {
+    text-decoration: none;
+    font-size: 1.2rem;
+    color: #fff;
+    padding: 8px;
+    border: 1px solid #fff;
+    border-radius: 49px;
+    transition: 0.5s ease;
+}
+
+ul li.active a {
+    color: #000;
+    background: #fff;
+}
+
+.menu ul li a:hover {
+    color: #000;
+    background: #fff;
+}
+
+.main {
+    grid-column: 2/3;
+    grid-row: 2/3;
+}
+
+.menu {
+    grid-row: 1/2;
+    grid-column: 2/3;
+    background: #593535;
+}
+
+.sidebar {
+    grid-column: 1/2;
+    grid-row: 1/3;
+    background: #593535;
+}
+
+
+.name {
+    border: 1px solid #fff;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: 5px;
+    margin-top: 1%;
+    border-radius: 5px;
+    background-image: url(../photos/email-pattern.png);
+    padding: 5px;
+    transform: translateY(10px);
+    height: 15vh;
+    font-size: larger;
+}
+
+.notifications {
+    border: 1px solid #fff;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: 5px;
+    margin-top: 0;
+    border-radius: 5px;
+    background-image: url(../photos/email-pattern.png);
+    padding: 5px;
+    transform: translateY(30px);
+    height: 68vh;
+    font-size: larger;
+}
+
+.instructions {
+    padding-left: 10%;
+    padding-top: 5%;
+}
+
+.main h2 {
+    padding: 10px;
+    /* text-align: center; */
+    padding-left: 10%;
+}
+
+.drop-zone {
+    width: 80%;
+    height: 150px;
+    padding: 25px;
+    align-content: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-family: "Quicksand", sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+    cursor: pointer;
+    /* color: #fff; */
+    border: 4px dashed #593535;
+    border-radius: 10px;
+    margin-left: 9%;
+    margin-top: 4%;
+}
+
+.drop-zone--over {
+    border-style: solid;
+}
+
+.drop-zone__input {
+    display: none;
+}
+
+.drop-zone__thumb {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: #cccccc;
+    background-size: cover;
+    position: relative;
+}
+
+.drop-zone__thumb::after {
+    content: attr(data-label);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 5px 0;
+    color: #ffffff;
+    background: rgba(0, 0, 0, 0.75);
+    font-size: 14px;
+    text-align: center;
+}
+
+.btn {
+    margin-top: 10px;
+    margin-left: 45%;
+    padding: 10px;
+    width: 100px;
+    border-radius: 49px;
+    background-image: linear-gradient(#196ffa, #213e6e);
+    text-decoration: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: x-large;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.notifications ul li {
+    padding-top: 10px;
+    transition: 0.3s ease;
+    
+}
+.notifications ul{
+    list-style-type: circle;
+}
+
+.notifications ul li:hover {
+    transform: scale(1.1);
+}
+
+table,
+th,
+td {
+    border: 1px solid black;
+}
+
+table {
+    width: 80%;
+    margin-left: 9%;
+    text-align: center;
+}
+
+th,
+td {
+    padding: 15px;
+}
+
+.table p {
+    margin-left: 9%;
+}
+
+
+/* .disap {
+    display: none;
+} */
+
+.table {
+    margin-top: 4%;
+}
+

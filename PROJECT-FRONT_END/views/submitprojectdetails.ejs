@@ -1,0 +1,37 @@
+<%- include('partials/header') %>
+
+    <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/css/submitdetails.css">
+    <title>STUDENT SUBMIT DETAILS</title>
+    </head>
+
+    <body>
+        <div class="container1">
+            <div class=heading>
+                <h1>WELCOME TO BMSCE PROJECT SUBMISSION PORTAL</h1>
+            </div>
+            <div class=container>
+                <div class="fields">
+                    <form action="/student/submitprojectdetails" method="Post" onsubmit="return Validate(this);">
+                        <label for="projecttitle">ENTER THE PROJECT TITLE:</label>
+                        <input type="text" placeholder="ENTER PROJECT TITLE" name="projectitle" id="projecttitle" autocomplete="off"><br><br>
+                        <label for="sections">ENTER THE SECTION:</label>
+                        <select name="dropdown1" id="section">
+    <option value="A">A</option>
+    <option value="B">B</option>
+    <option value="C">C</option>
+    <option value="D">D</option>
+     </select><br><br>
+                        <label for="members">ENTER THE NUMBER OF MEMBERS:</label>
+                        <select name="dropdown2" id="members">
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option><br><br>
+     </select>
+                </div>
+                <div class=sub1> <button type="submit" class="submitbtn1">SUBMIT</button> </div>
+                </form>
+            </div>
+
+            <script type="text/javascript" src="/js/submitdetails.js"></script>
+            <%- include('partials/footer') %>

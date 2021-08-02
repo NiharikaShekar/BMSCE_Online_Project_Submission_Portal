@@ -1,0 +1,106 @@
+<%- include('partials/header') %>
+
+
+    <title>Student Tab</title>
+    <link rel="stylesheet" href="/css/report.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/7909e8b9ea.js" crossorigin="anonymous"></script>
+    </head>
+
+    <body>
+        <header>
+            <h1>BMSCE ONLINE PROJECT SUBMISSION PORTAL</h1>
+        </header>
+        <div class="container">
+            <div class="sidebar">
+                <div class="name">
+                    <p><i class="fas fa-project-diagram"></i>
+                        <h2>PROJECT NAME:</h2>
+                        <h3>
+                            <%=pname%>
+                        </h3>
+                    </p>
+                </div>
+                <div class="notifications">
+                    <h3 style="color: #593535;">NOTIFICATIONS:</h3>
+                    <ul>
+                        <% noti.forEach(not=>{ %>
+                            <li>
+                                <%= not.TEXT %>
+                            </li>
+                            <hr>
+                            <%}); %>
+                        
+                    </ul>
+                </div>
+            </div>
+            <div class="menu">
+                <ul>
+                    <li class="active"><a href="/student/report">Report Submission</a></li>
+                    <li><a href="/student/appointment">Schedule an Appointment</a></li>
+                    <li><a href="/student/psub">Project Submission</a></li>
+                    <li><a href="/student/grades">Grades</a></li>
+                    <li><a href="/suser/logout">Logout</a></li>
+                </ul>
+            </div>
+            <% if(result===0){%>
+                <div class="main">
+                    <h1 style="color:#593535; padding-top: 2%; padding-left: 2%;">UPLOAD YOUR REPORT:</h1>
+
+                    <div class="instructions">
+                        <h3 style="color:#593535;">Instructions:</h3>
+                        <ol>
+                            <li>THE REPORT SHOULD BE IN DOC FORMAT(.docx)</li>
+                            <li>REPORT SHOULD BE IN THE SAME FORMAT AS THAT OF THE SAMPLE REPORT</li>
+                            <li>IMAGES OF HANDWRITTEN WEBPAGES MUST BE INCLUDED</li>
+                            <li>PLEASE MAKE SURE THE REPORT IS ERROR FREE</li>
+                        </ol>
+                    </div>
+
+                    <form action="/student/report" onsubmit="return Validate(this);" method="post" enctype="multipart/form-data">
+                        <div class="drop-zone">
+                            <span class="drop-zone__prompt">Drop file here or click to upload</span>
+                            <input type="file" name="myFile" class="drop-zone__input">
+                        </div>
+                        <input type="submit" value="SUBMIT" class="disap btn">
+                    </form>
+                    <%}else{%>
+                        <div class="table">
+                            <table>
+                                <caption>Submitted details</caption>
+                                <tr>
+                                    <th>Project_ID</th>
+                                    <th>Title</th>
+                                    <th>Document</th>
+                                    <th>Time</th>
+                                    <th>Status</th>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <%=projectid%>
+                                    </td>
+                                    <td>
+                                        <%=pname%>
+                                    </td>
+                                    <td>
+                                        <a target="_blank" href="<%=plink%>">
+                                            <%=plink%>
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <%=time%>
+                                    </td>
+                                    <td><%=status%></td>
+                                </tr>
+
+                            </table>
+                            <p>*You will be informed about your submission status when your report is evaluated.</p>
+                        </div>
+                </div>
+                <% } %>
+
+        </div>
+
+        <script src="/js/report.js"></script>
+
+        <%- include('partials/footer') %>

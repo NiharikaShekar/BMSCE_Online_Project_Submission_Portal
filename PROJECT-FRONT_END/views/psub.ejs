@@ -1,0 +1,119 @@
+<%- include('partials/header') %>
+
+
+    <title>Student Tab</title>
+    <link rel="stylesheet" href="/css/psub.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://kit.fontawesome.com/7909e8b9ea.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="/js/psub.js"></script>
+   
+
+
+
+</head>
+
+<body>
+    
+    <header>
+        <h1>BMSCE ONLINE PROJECT SUBMISSION PORTAL</h1>
+    </header>
+    <div class="container">
+        <div class="sidebar">
+            <div class="name">
+                <p><i class="fas fa-project-diagram"></i>
+                <h2>PROJECT NAME:</h2>
+                <h3>
+                    <%=pname%>
+                </h3>
+                </p>
+            </div>
+            <div class="notifications">
+                <h3 style="color: #593535;">NOTIFICATIONS:</h3>
+                <ul>
+                    <% noti.forEach(not=>{ %>
+                        <li>
+                            <%= not.TEXT %>
+                        </li>
+                        <hr>
+                        <%}); %>
+                </ul>
+            </div>
+        </div>
+        <div class="menu">
+            <ul>
+                <li><a href="/student/report">Report Submission</a></li>
+                <li><a href="/student/appointment">Schedule an Appointment</a></li>
+                <li class="active"><a href="/student/psub">Project Submission</a></li>
+                <li><a href="/student/grades">Grades</a></li>
+                <li><a href="/suser/logout">Logout</a></li>
+            </ul>
+        </div>
+        <div class="main">
+        <div class="instructions">
+            <% if(submitted === 0){ %>
+            <h3 style="color:#593535;">Instructions:</h3>
+            <ol>
+                <li>UPLOAD A LINK TO YOUR PROJECT FILES HERE.</li>
+                <li>MAKE SURE THE LINK IS ACCESSIBLE TO THE INSTRUCTOR.</li>
+                <li>THE REPO SHOULD CONTAIN ALL THE FILES PERTAINING TO THE CURRENT PROJECT.</li>
+                <li>ADD A DESCRIPTION OF THE FILE STRUCTURE.</li>
+            </ol>
+        
+            <br>
+            <% }else{ %>
+                <div class="table">
+                    <table>
+                        <caption>Submitted details</caption>
+                        <tr>
+                            <th>Project_ID</th>
+                            <th>LINK</th>
+                            <th>Date</th>
+                        
+                            <th>Status</th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <%=pid%>
+                            </td>
+                            <td>
+                                <a target="_blank" href="<%=link%>">
+                                    <%=link%>
+                                </a>
+                            </td>
+                            <td>
+                                <%=date%>
+                            </td>
+                            
+                            <td>
+                                <%=status%>
+                            </td>
+                            
+                        </tr>
+                
+                    </table>
+                    <p>*You will be informed about your submission status when your project is evaluated.</p>
+                    <div class="descrip">
+                        <h3>File Structure</h3>
+                        <p>
+                            <%= structure %>
+                        </p>
+                    </div>
+                </div>
+            <% } %>
+        </div>
+        <% if(submitted===0){ %>
+        <form action="/student/psub" method="post" onsubmit="return validateForm()">
+            <label for="link">URL:</label>
+            <input type="url" name="link" id="link" >
+            <br>
+            <br>
+            
+            <textarea name="structure" id="struc" cols="120" rows="10" placeholder="Describe file structure" ></textarea>
+            <br>
+            <input type="submit" value="submit" class="btn">
+        </form>
+        <% } %>
+        </div>
+    </div>
+
+    <%- include('partials/footer') %>

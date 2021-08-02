@@ -1,0 +1,59 @@
+<%- include('partials/header') %>
+
+    <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/css/submitdetails.css">
+    <title>STUDENT SUBMIT DETAILS</title>
+    <script type="text/javascript" src="/js/submitdetails.js"></script>
+    </head>
+
+    <body>
+        
+       
+        <%- include('partials/header') %>
+
+            <div class="container">
+                <div class=heading>
+                    <h1>WELCOME TO BMSCE PROJECT SUBMISSION PORTAL</h1>
+                </div>
+                <div class="fieldsteam">
+                    <h3>ENTER THE DETAILS OF MEMBERS AS FOLLOWS:</h3>
+                </div>
+                
+                <form action="/student/submitteamdetails" method="POST" onsubmit="return validate1();" enctype="multipart/form-data" >
+                    <% var i; %>
+                    <input type="hidden" name="num" value="<%= members%>" id="num">
+                        <%for(i=1;i<=members;i++){%>
+                            <div class="memeber<%=i%>">
+                                <hr>
+                                <h3 style="font-size: larger;">Member
+                                    <%= i %>
+                                </h3>
+                                <br>
+                                <label for="name<%= i %>" style="font-size: larger;"><b>NAME:</b></label>
+                                <input type="text" placeholder="Enter NAME" name="name<%= i %>" id="name<%= i %>" autocomplete="off" required>
+                                <br>
+                                <label for="usn<%= i %>" style="font-size: larger;"><b>USN:</b></label>
+                                <input type="text" placeholder="Enter USN" name="usn<%= i %>" id="usn<%= i %>" required>
+                                <div id="USN_error<%= i %>">Invalid USN</div>
+                                <br>
+                                <label for="e<%= i %>" style="font-size: larger;"><b>EMAIL ID:</b></label>
+                                <input type="text" placeholder="Enter EMAIL ID" name="e<%= i %>" id="e<%= i %>" autocomplete="off" required>
+                                <div id="semail_error<%= i %>">Invalid Email</div>
+                                <br>
+
+                                <label for="phone<%= i %>" style="font-size: larger;"><b>PHONE NUMBER:</b></label>
+                                <input type="tel" placeholder="Enter PHONE NUMBER" id="phone<%= i %>" name="phone<%= i %>" required>
+                                <div id="ph_error<%= i %>">Invalid PHONE NUMBER</div>
+                                <br>
+                                <hr>
+                            </div>
+                            <%}%>
+                                
+                            <div class=sub> <button class="submitbtn" type="submit">SUBMIT</button> </div>
+                                
+                                
+                </form>
+                </div>
+
+            
+            <%- include('partials/footer') %>

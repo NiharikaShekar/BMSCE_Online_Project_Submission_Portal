@@ -1,0 +1,124 @@
+<%- include('partials/header') %>
+   <title>Appointments</title>
+   <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+   <link rel="stylesheet" href="/css/request.css" />
+   <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+</head>
+
+<body>
+   <% console.log("lolololo",vals); %>
+   <div style="background-image: url(./photos/email-pattern.png);">
+   <div class="header">
+      <h1>BMSCE ONLINE PROJECT SUBMISSION PORTAL</h1>
+   </div>
+   <p class="abc">WELCOME TO TEACHER'S HOME PAGE!</p>
+   <br />
+   <div class="border1">
+      <div class="row">
+         <div class="column side">
+            <div class="border">
+               <h1 style="font-size: 30px"><%=vals[0].NAME%></h1>
+               <i class="fa fa-user" style="font-size: 23px">
+                  <%=vals[0].EMAIL%></i></i>
+               <br/>
+               <br/>
+               <br/>
+<a href="/teacher/scheduleappointment"><button class="button1"><i class='fas fa-edit'></i> Schedule an appointment</button></a>
+               <a href="/teacher/viewappointmentreqs"><button class="button2"><i class="fa fa-laptop"></i> View upcoming and requests for the appointment</button></a>
+              </div>
+         </div>
+
+         <div class="column middle">
+          <div class="topnav">
+               <a href="/teacher/viewreport">View Reports</a>
+               <a class="active" href="/teacher/scheduleappointment" style="color: black">Appointments</a>
+               <a href="/teacher/viewproject">View Projects</a>
+               <a href="/teacher/grading">Grading </a>
+               <a href="/teacheruser/logout">Logout </a>
+          </div>
+          <div class="all">
+            <h2>
+               <span style="font-size: 20px">&#9733;</span>List of Requests for Appointment with you:
+            </h2>
+            <table id="teachers" class="table">
+               <thead>
+                  <tr>
+                     <th>Teams</th>
+                     <th>Proposal</th>
+                     <th>Scheduled</th>
+                     <th>Approval</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <% vals.forEach(val=>{ %>
+                     <% if(val.APPROVAL === 'PENDING...') {%>
+                     <tr>
+                        <td style="width: 235px;">
+                           <%= val.PROJECT_TITLE %>
+                        </td>
+                        <td style="width: 243px;"> <%= val.TYPEOFAPP %></td>
+                        <td style="width: 248px;">
+                           <%= val.ADATE %>
+                        </td>
+                        <td class="approval">
+                           <form action="/teacher/viewappointmentreqs" method="POST">
+                              
+                              <input type="radio" id="approve" name="approval" value="APPROVED" onchange="this.form.submit()">
+                              <label for="APPROVE">✔️</label><br>
+                              <input type="radio" id="disapprove" name="approval" value="DISAPPROVED" onchange="this.form.submit()">
+                              <label for="DISAPPROVE">❌</label><br>
+                              <input type="hidden" name="projectId" value="<%=val.PROJECT_ID%>" />
+                           </form>
+                        </td>
+                     </tr>
+                     <% }; %>
+                  <% }); %>
+                  
+                
+                
+             
+               </tbody>
+            </table>
+            <h2>
+               <span style="font-size: 20px">&#9733;</span>Upcoming appointments:
+            </h2>
+            <table id="teachers" class="table">
+               <thead>
+                  <tr>
+                     <th>Teams</th>
+                     <th>Proposal</th>
+                     <th>Scheduled</th>
+                     <th>Approval</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <% vals.forEach(val=>{ %>
+                     <% if(val.APPROVAL === 'APPROVED' ) {%>
+                        <tr>
+                           <td style="width: 235px;">
+                              <%= val.PROJECT_TITLE %>
+                           </td>
+                           <td style="width: 243px;">
+                              <%= val.TYPEOFAPP %>
+                           </td>
+                           <td style="width: 248px;">
+                              <%= val.ADATE %>
+                           </td>
+                           <td class="approval">
+                              <%= val.APPROVAL %>
+                           </td>
+                        </tr>
+                        <% }; %>
+                           <% }); %>
+            
+            
+            
+            
+               </tbody>
+            </table>
+            </div>
+         </div>
+         </div>
+      </div>
+   </div>
+   <%- include('partials/footer') %>

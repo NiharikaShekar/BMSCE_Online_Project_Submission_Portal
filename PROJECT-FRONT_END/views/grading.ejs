@@ -1,0 +1,38 @@
+<%- include('partials/header') %>
+<title>Grading</title>
+<link rel="stylesheet" href="/css/viewproject.css" />
+<link rel="stylesheet" href="/css/tpregrading.css" />
+</head>
+<body>
+
+    <div class="header">
+        <h1>BMSCE ONLINE PROJECT SUBMISSION PORTAL</h1>
+    </div>
+    
+    <p class="abc">WELCOME TO TEACHER'S HOME PAGE!</p>
+    <br>
+    <div class="topnav">
+        <a href="/teacher/viewreport">View Reports</a>
+        <a href="/teacher/scheduleappointment">Appointments</a>
+        <a href="/teacher/viewproject" >View Projects</a>
+        <a class="active" href="/teacher/grading" style="color: black">Grading </a>
+        <a href="/teacheruser/logout">Logout </a>
+    </div>
+    <div class="teams">
+        <% console.log("niru", vals); %>
+        <ul class="gradient-list">
+        <% vals.forEach(val=>{ %>
+            <form action="/teacher/grading" method="post" id="<%=val.PROJECT_ID%>">
+                <li onclick="document.getElementById('<%=val.PROJECT_ID%>').submit();">
+                    
+                        <%= val.PROJECT_TITLE %>
+                   
+                    
+                    <input type="hidden" name="PROJECT_ID" value="<%=val.PROJECT_ID%>" />
+                    <input type="hidden" name="PROJECT_TITLE" value="<%= val.PROJECT_TITLE %>" />
+                </li>
+            </form>
+        <% }) %>
+        </ul>
+    </div>
+    <%- include('partials/footer') %>

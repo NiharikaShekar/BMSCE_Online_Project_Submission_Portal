@@ -1,0 +1,438 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Century Gothic;
+}
+
+body {
+    background-image: url("../photos/email-pattern.png");
+}
+
+header {
+    width: 100%;
+    height: 10vh;
+    background: #fff;
+    position: fixed;
+    z-index: 1000;
+}
+
+header h1 {
+    padding-top: 15px;
+    text-align: center;
+}
+
+.container {
+    width: 100%;
+    height: 90vh;
+}
+
+.menu ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 18px;
+}
+
+.menu ul li {
+    list-style: none;
+    margin: 0 20px;
+    cursor: pointer;
+}
+
+.menu ul li a {
+    text-decoration: none;
+    font-size: 1.2rem;
+    color: #fff;
+    padding: 8px;
+    border: 1px solid #fff;
+    border-radius: 49px;
+    transition: 0.5s ease;
+    margin-top: 2px;
+}
+
+ul li.active a {
+    color: #000;
+    background: #fff;
+}
+
+.menu ul li a:hover {
+    color: #000;
+    background: #fff;
+}
+
+.menu {
+    background: #593535;
+    position: fixed;
+    width: 100%;
+    height: 8vh;
+    top: 10vh;
+    z-index: 1000;
+}
+
+.main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 0.8fr 0.8fr 0.8fr;
+    transform: translateY(20vh);
+}
+
+.tbl-main {
+    grid-row: 1/2;
+    grid-column: 2/3;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.table {
+    width: 600px;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    margin-top: 3%;
+    margin-left: 7%;
+}
+
+table,
+th,
+td {
+    border: 1px solid black;
+    /* border-collapse: collapse; */
+    border-style: double;
+}
+
+table {
+    width: 80%;
+    /* margin-left: 9%; */
+    text-align: center;
+    height: 80%;
+}
+
+th,
+td {
+    padding: 15px;
+}
+
+.g-container,
+.g-panel {
+    padding: 0.01em 16px;
+}
+
+.m2 {
+    display: inline-block;
+}
+
+.m10 {
+    width: 70%;
+    display: inline-block;
+}
+
+
+/* svg {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    z-index: 1000;
+}
+
+svg circle {
+    width: 100%;
+    height: 100%;
+    fill: none;
+    stroke: #191919;
+    stroke-width: 10;
+    stroke-linecap: round;
+    transform: translate(5px, 5px);
+}
+
+#b circle {
+    stroke-dasharray: 220;
+    stroke-dashoffset: 220;
+}
+
+#a circle {
+    stroke: #00ff43;
+}
+
+#b circle {
+    stroke: #00a1ff;
+}
+
+#c circle {
+    stroke: #ff47ff;
+}
+
+.cardcon {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+}
+
+.cardcon .card {
+    position: relative;
+    width: 250px;
+    background: linear-gradient(0deg, #1b1b1b, #222, #1b1b1b);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} */
+
+.piemain {
+    grid-column: 1/2;
+    grid-row: 1/2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#piechart {
+    width: 90%;
+    height: 90%;
+    /* padding-top: 4%;
+    padding-left: 4%; */
+}
+
+.donuts {
+    grid-column: 1/3;
+    grid-row: 2/3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/**
+ * Inspiration for this project found at:
+ * https://markus.oberlehner.net/blog/pure-css-animated-svg-circle-chart
+ * 1. The `reverse` animation direction plays the animation backwards
+ *    which makes it start at the stroke offset 100 which means displaying
+ *    no stroke at all and animating it to the value defined in the SVG
+ *    via the inline `stroke-dashoffset` attribute.
+ * 2. Rotate by -90 degree to make the starting point of the
+ *    stroke the top of the circle.
+ * 3. Using CSS transforms on SVG elements is not supported by Internet Explorer
+ *    and Edge, use the transform attribute directly on the SVG element as a
+ * .  workaround.
+ */
+
+.circle-chart {
+    width: 200px;
+    height: 200px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.circle-chart__circle {
+    stroke: #00acc1;
+    stroke-width: 2;
+    stroke-linecap: square;
+    fill: none;
+    animation: circle-chart-fill 2s reverse;
+    /* 1 */
+    transform: rotate(-90deg);
+    /* 2, 3 */
+    transform-origin: center;
+    /* 4 */
+}
+
+/**
+   * 1. Rotate by -90 degree to make the starting point of the
+   *    stroke the top of the circle.
+   * 2. Scaling mirrors the circle to make the stroke move right
+   *    to mark a positive chart value.
+   * 3. Using CSS transforms on SVG elements is not supported by Internet Explorer
+   *    and Edge, use the transform attribute directly on the SVG element as a
+   * .  workaround.
+   */
+
+.circle-chart__circle--negative {
+    transform: rotate(-90deg) scale(1, -1);
+    /* 1, 2, 3 */
+}
+
+.circle-chart__background {
+    stroke: #161313;
+    stroke-width: 2;
+    fill: none;
+}
+
+.circle-chart__info {
+    animation: circle-chart-appear 2s forwards;
+    opacity: 0;
+    transform: translateY(0.3em);
+}
+
+.circle-chart__percent {
+    alignment-baseline: central;
+    text-anchor: middle;
+    font-size: 8px;
+}
+
+.circle-chart__subline {
+    alignment-baseline: central;
+    text-anchor: middle;
+    font-size: 3px;
+}
+
+.success-stroke {
+    stroke: #00C851;
+}
+
+.warning-stroke {
+    stroke: #ffbb33;
+}
+
+.danger-stroke {
+    stroke: #ff4444;
+}
+
+@keyframes circle-chart-fill {
+    to {
+        stroke-dasharray: 0 100;
+    }
+}
+
+@keyframes circle-chart-appear {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#donut {
+    width: 30%;
+    margin: 0 15px;
+    display: inline-block;
+}
+
+.a {
+    grid-row: 4/5;
+    grid-column: 1/3;
+}
+
+.b {
+    grid-row: 3/4;
+    grid-column: 1/3;
+}
+
+#donut {
+    background: #fff;
+    text-align: center;
+}
+
+.circle-chart {
+    margin: 10px;
+}
+
+.b {
+    padding: 0.01em 16px;
+    /* width: 100%; */
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.b h3 {
+    font-family: "Segoe UI", Arial, sans-serif;
+    font-weight: 400;
+    margin: 10px 0
+}
+
+.b ul li {
+    line-height: 3.5;
+}
+
+.b ul {
+    background: #fff;
+    border: 1px grey;
+}
+
+.g-wide {
+    letter-spacing: 4px
+}
+
+.g-image {
+    max-width: 100%;
+    height: auto
+}
+
+img {
+    vertical-align: middle
+}
+
+.g-ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0
+}
+
+.g-ul li {
+    padding: 8px 16px;
+    border-bottom: 1px solid #ddd
+}
+
+.g-ul li:last-child {
+    border-bottom: none
+}
+
+.a h3 {
+    font-family: "Segoe UI", Arial, sans-serif;
+    font-weight: 400;
+    margin: 10px 0
+}
+
+.a {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.g-circle {
+    border-radius: 50%;
+}
+
+.m2,
+.m10 {
+    margin-left: 10px;
+    margin-right: 50px;
+}
+
+.g-row {
+    display: grid;
+    grid-template-rows: 120px;
+    grid-template-columns: 120px 1fr;
+    width: 100%;
+}
+
+.m2 {
+    grid-row: 1/2;
+    grid-column: 1/2;
+}
+
+.m10 {
+    grid-row: 1/2;
+    grid-column: 2/3;
+}
+
+.m10 p {
+    margin-top: 20px;
+}
+
+.m10 h4 {
+    font-size: 25px;
+}
+
+.g-medium {
+    font-weight: lighter;
+    opacity: 0.7;
+    font-size: 16px;
+}
+
+.table {
+    box-shadow: #161313;
+}
